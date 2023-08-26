@@ -8,48 +8,60 @@
 
 <body>
   <script>
+  
+    let selection;
+    let computerChoice;
 
-prompt('hi')
+    function playerSelection(){
+      selection = prompt('What is ur choice?').toLowerCase();
+      return selection
+    }
 
     const choice = ['scissors', 'paper', 'stone']
     function getComputerChoice() {
-      console.log(choice[(Math.floor(Math.random() * choice.length))]);
-}
+      computerChoice = choice[(Math.floor(Math.random() * choice.length))];
+      console.log(`Computer chose ${computerChoice}.`);
+      return computerChoice;
+    }
 
-    function playRound(playerSelection, computerSelection) {
-      if (playerSelection === 'scissors' && computerSelection === 'paper') {
+    function playRound(selection, computerChoice) {
+      
+      if (selection === 'scissors' && computerChoice === 'paper') {
         console.log('You Win! Scissors beats Paper')
       }
-      else if (playerSelection === 'scissors' && computerSelection === 'stone') {
+      else if (selection === 'scissors' && computerChoice=== 'stone') {
         console.log('You Lose! Paper beats Scissors')
       }
-      else if (playerSelection === 'scissors' && computerSelection === 'scissors') {
+      else if (selection === 'scissors' && computerChoice === 'scissors') {
         console.log('Its a tie!')
       }
-      else if (playerSelection === 'paper' && computerSelection === 'stone') {
+      else if (selection === 'paper' && computerChoice === 'stone') {
         console.log('You Win! Paper beats Stone')
       }
-      else if (playerSelection === 'paper' && computerSelection === 'scissors') {
+      else if (selection === 'paper' && computerChoice === 'scissors') {
         console.log('You Lose! Scissors beats Paper')
       }
-      else if (playerSelection === 'paper' && computerSelection === 'paper') {
+      else if (selection === 'paper' && computerChoice === 'paper') {
         console.log('Its a tie!')
       }
-      else if (playerSelection === 'stone' && computerSelection === 'scissors') {
+      else if (selection === 'stone' && computerChoice === 'scissors') {
         console.log('You Win! Stone beats Scissors')
       }
-      else if (playerSelection === 'stone' && computerSelection === 'scissors') {
+      else if (selection === 'stone' && computerChoice === 'scissors') {
         console.log('You Lose! Paper beats Stone')
       }
-      else if (playerSelection === 'stone' && computerSelection === 'stone') {
+      else if (selection === 'stone' && computerChoice === 'stone') {
         console.log('Its a tie!')
       }
+      else {'what is that?'}
     }
     
+    playerSelection()
+    getComputerChoice()
+    playRound(selection, computerChoice)
 
 
-
-
+;
    </script> 
 </body>
 </html>
