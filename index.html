@@ -11,6 +11,8 @@
   
     let selection;
     let computerChoice;
+    let playerScore = 0;
+    let computerScore = 0;
 
     function playerSelection(){
       selection = prompt('What is ur choice?').toLowerCase();
@@ -27,41 +29,54 @@
     function playRound(selection, computerChoice) {
       
       if (selection === 'scissors' && computerChoice === 'paper') {
-        console.log('You Win! Scissors beats Paper')
+        console.log('You Win! Scissors beats Paper');
+        playerScore = ++playerScore;
       }
       else if (selection === 'scissors' && computerChoice=== 'stone') {
-        console.log('You Lose! Paper beats Scissors')
+        console.log('You Lose! Paper beats Scissors');
+        computerScore = ++computerScore;
       }
       else if (selection === 'scissors' && computerChoice === 'scissors') {
-        console.log('Its a tie!')
+        console.log('Its a tie!');
       }
       else if (selection === 'paper' && computerChoice === 'stone') {
-        console.log('You Win! Paper beats Stone')
+        console.log('You Win! Paper beats Stone');
+        playerScore = ++playerScore;
       }
       else if (selection === 'paper' && computerChoice === 'scissors') {
-        console.log('You Lose! Scissors beats Paper')
+        console.log('You Lose! Scissors beats Paper');
+        computerScore = ++computerScore;
       }
       else if (selection === 'paper' && computerChoice === 'paper') {
-        console.log('Its a tie!')
+        console.log('Its a tie!');
       }
       else if (selection === 'stone' && computerChoice === 'scissors') {
-        console.log('You Win! Stone beats Scissors')
+        console.log('You Win! Stone beats Scissors');
+        playerScore = ++playerScore;
       }
       else if (selection === 'stone' && computerChoice === 'scissors') {
-        console.log('You Lose! Paper beats Stone')
+        console.log('You Lose! Paper beats Stone');
+        computerScore = ++computerScore;
       }
       else if (selection === 'stone' && computerChoice === 'stone') {
-        console.log('Its a tie!')
+        console.log('Its a tie!');
       }
-      else {'what is that?'}
+      else {console.log('what is that?')}
+    }
+    for (let i = 0; i < 3; i++) {
+      playerSelection();
+      getComputerChoice();
+      playRound(selection, computerChoice);
     }
     
-    playerSelection()
-    getComputerChoice()
-    playRound(selection, computerChoice)
+    if (playerScore > computerScore) {
+      alert('You are the champ!');
+    } else if (computerScore > playerScore) {
+      alert('Take a L noob');
+    } else {
+      alert('no one won.');
+    }
 
-
-;
    </script> 
 </body>
 </html>
